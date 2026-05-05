@@ -23,7 +23,7 @@ import axios from 'axios';
 
 function Timesheets() {
   const [isAddTimesheetModalOpen, setIsAddTimesheetModalOpen] = useState(false);
-  const [timesheetsData, setTimesheetsData] = useState([]);
+  const [, setTimesheetsData] = useState([]);
   const [timesheetsStats, setTimesheetsStats] = useState({
     totalTimesheets: 0,
     developmentType: 0,
