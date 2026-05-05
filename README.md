@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📝 Task Management System (MERN Stack)
 
 A full-stack Task Management application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This app allows users to manage daily tasks efficiently with features like authentication, task creation, updates, and deletion.
@@ -162,3 +163,6 @@ This project is licensed under the ISC License.
 ---
 
 ⭐ If you like this project, consider giving it a star!
+=======
+# task-management-system-MERN-STACK-
+>>>>>>> 121a9ba92c2e8f65182da2efaef1a382e6a95355
