@@ -13,7 +13,7 @@ import Navbar from '../../components/navbar/Navbar';
 import axios from 'axios';
 
 function Dashboard() {
-  const [dashboardData, setDashboardData] = useState([]);
+  const [, setDashboardData] = useState([]);
 
   const getDashboard = async () => {
     const response = await axios.get('api/dashboard')
