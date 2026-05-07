@@ -7,7 +7,6 @@ import Projects from './layouts/projects/Projects.jsx'
 import Tasks from './layouts/tasks/Tasks.jsx'
 import Timesheets from './layouts/timesheets/Timesheets.jsx'
 import Attendance from './layouts/attendance/Attendance.jsx'
-
 function App() {
   return (
     <>

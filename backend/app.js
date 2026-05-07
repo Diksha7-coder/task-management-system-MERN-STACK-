@@ -1,10 +1,9 @@
 const express = require('express');
-const connectDB = require('./config/db');
 require('dotenv').config();
+
+const connectDB = require('./config/db');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
-
 
 // Routes Imports
 const authRoute = require('./routes/auth');
@@ -16,13 +15,18 @@ const timesheetRoute = require('./routes/timesheet');
 const attendanceRoute = require('./routes/attendance');
 
 const app = express();
-const PORT = process.env.PORT;
+
 connectDB();
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Test Route
+app.get('/', (req, res) => {
+  res.send('Backend is running successfully');
+});
 
 // API's
 app.use('/api', authRoute);
@@ -34,6 +38,8 @@ app.use('/api', timesheetRoute);
 app.use('/api', attendanceRoute);
 
 // Server Listen
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
 });

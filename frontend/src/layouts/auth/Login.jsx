@@ -18,28 +18,50 @@ function Login() {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        try {
-            const response = await axios.post('api/login', formData);
-            localStorage.setItem('tm_token', response.data.token);
-            navigate('/admin/dashboard')
-        } catch (error) {
-            let Error = error.response.data.message
-            setFormData({
-                email: '',
-                password: ''
-            });
-            toast({
-                title: Error,
-                status: 'error',
-                position: 'top',
-                duration: 5000,
-                isClosable: true,
-            });
-            setLoading(false);
-        }
-    };
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+        const response = await axios.post('http://localhost:8000/api/login', formData);
+
+        localStorage.setItem('tm_token', response.data.token);
+
+        toast({
+            title: 'Login successful',
+            status: 'success',
+            position: 'top',
+            duration: 3000,
+            isClosable: true,
+        });
+
+        navigate('/admin/dashboard');
+
+    } catch (error) {
+        console.log("Login error:", error);
+
+        const errorMessage =
+            error.response?.data?.message ||
+            error.response?.data?.error ||
+            error.message ||
+            "Something went wrong";
+
+        setFormData({
+            email: '',
+            password: ''
+        });
+
+        toast({
+            title: errorMessage,
+            status: 'error',
+            position: 'top',
+            duration: 5000,
+            isClosable: true,
+        });
+
+    } finally {
+        setLoading(false);
+    }
+};
     return (
         <div className='login-main-container'>
             <div className='login-container'>
